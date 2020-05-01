@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/*variables*/
+/*Mixins*/
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*code*/
+body {
+  margin: 0;
+  /* Reset des marges */
+  /*Seulement pour les pages de chaque resto*/
+}
+
+body button {
+  /*changement de curseur + pas de bordures, appliqué à tous les boutons de la page*/
+  border: none;
+}
+
+body button:hover {
+  cursor: pointer;
+}
+
+body header {
+  margin-top: -50px;
+  /*margintop sinon on voit du blanc au dessus du bandeau*/
+  background-color: #579c87;
+  color: #fdcb46;
+  height: 200px;
+}
+
+body header h1 {
+  /*logo*/
+  position: relative;
+  top: 40%;
+  text-align: center;
+  font-size: 3.5em;
+  font-weight: 800;
+}
+
+body main {
+  /*bloc central avec tous les resto*/
+}
+
+body main figure {
+  /*container pour les photos*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+body main figure a {
+  overflow: hidden;
+  -webkit-box-shadow: 1px 1px 10px #cccbcb;
+          box-shadow: 1px 1px 10px #cccbcb;
+  margin: 15px;
+}
+
+body main figure a:hover {
+  cursor: pointer;
+}
+
+body main figure img {
+  /*images des menus*/
+  max-width: 400px;
+  min-width: 200px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body main section {
+  /*section pour le bouton "prochainement"*/
+}
+
+body main section a {
+  /*boutton prochainement forme etc... obligation de CSS...*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #579c87;
+  color: #fdcb46;
+  font-size: 1.6em;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  padding-bottom: 18px;
+  width: 300px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 15px;
+}
+
+body main section div {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 150px;
+}
+
+body main section div span {
+  font-size: 4em;
+  color: #32811a;
+}
+
+body footer {
+  /*ligne verte du bas avec les deux boutons/lien */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+body footer div {
+  background-color: #579c87;
+  color: #fdcb46;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+  height: auto;
+  min-height: 75px;
+  white-space: nowrap;
+}
+
+body footer div a {
+  background-color: #579c87;
+  color: #fdcb46;
+  font-size: 1.6em;
+  width: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 3%;
+  padding-right: 3%;
+  text-decoration: none;
+  text-align: center;
+}
+
+body article {
+  /*articles présents dans les pages de chaque restaurant mais pas dans l'index*/
+  margin-left: 9%;
+  margin-right: 9%;
+}
+
+body article h2 {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 800;
+}
+
+body article img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 1px 1px 10px #cccbcb;
+          box-shadow: 1px 1px 10px #cccbcb;
+  margin-bottom: 200px;
+  width: 100%;
+  max-width: 1500px;
+}
+
+body article img:hover {
+  cursor: pointer;
+}
+
+/* Média-queries*/
+@media (min-width: 910px) and (max-width: 1720px) {
+  /*pour éviter d'avoir 3 colonne de menu car c'est pas estétique*/
+  body main figure {
+    max-width: 910px;
+  }
+}
+
+@media (max-width: 470px) {
+  /*modification de quelques tailles sur petit ecran*/
+  body header h1 {
+    font-size: 2.5em;
+  }
+  body article h2 {
+    font-size: 1.5em;
+  }
+  body main figure {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  body main a {
+    font-size: 1em;
+  }
+  body footer div {
+    white-space: normal;
+  }
+  body footer div a {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 600px) {
+  body article {
+    /*articles présents dans les pages de chaque restaurant mais pas dans l'index*/
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

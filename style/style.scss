@@ -1,0 +1,207 @@
+
+/*variables*/
+$vert:#579c87;
+$jaune:#fdcb46;
+$gris:#cccbcb;
+
+
+/*Mixins*/
+@mixin textcolor { 
+    background-color: $vert;
+    color: $jaune;
+}
+
+@mixin centrer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin shadow_hover_img {
+    box-shadow: 1px 1px 10px $gris;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*code*/
+body{
+    margin: 0; /* Reset des marges */
+    button{/*changement de curseur + pas de bordures, appliqué à tous les boutons de la page*/
+        border:none;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    header{
+        margin-top: -50px; /*margintop sinon on voit du blanc au dessus du bandeau*/
+        @include textcolor;
+        height: 200px;
+
+        h1{ /*logo*/
+            position:relative;
+            top: 40%;
+            text-align: center;
+            font-size: 3.5em;
+            font-weight: 800;
+        }
+    }
+
+
+    main{ /*bloc central avec tous les resto*/
+        figure{ /*container pour les photos*/
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            a{
+                overflow:hidden;
+                @include shadow_hover_img;
+                margin: 15px;
+            }
+            img{ /*images des menus*/
+                max-width: 400px;
+                min-width: 200px;
+                width: 100%;
+                @include centrer;
+            }
+        }
+        
+        section{ /*section pour le bouton "prochainement"*/
+            a{ /*boutton prochainement forme etc... obligation de CSS...*/
+                @include centrer;
+                @include textcolor;
+                font-size: 1.6em;
+                font-weight: 400;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 15px;
+                padding-bottom: 18px;
+                width: 300px;
+                text-decoration: none;
+                text-align: center;
+                border-radius: 15px;
+            }
+            div{
+                text-align: center;
+                @include centrer;
+                margin-bottom: 150px;
+                span{
+                    font-size: 4em;
+                    color: #32811a;
+                }
+            }
+        }
+    }
+
+    footer{ /*ligne verte du bas avec les deux boutons/lien */
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        div{
+            @include textcolor;
+            height: 50px;
+            display : flex;
+            flex-direction:row;
+            justify-content: space-between;
+            margin: auto;
+            height: auto;
+            min-height: 75px;
+            white-space: nowrap;
+            a{
+                @include textcolor;
+                font-size: 1.6em;
+                width: auto;
+                padding-top: 25px;
+                padding-bottom: 25px;
+                padding-left: 3%;
+                padding-right: 3%;
+                text-decoration: none;
+                text-align: center;
+            }
+        }
+    }
+    /*Seulement pour les pages de chaque resto*/
+    article{ /*articles présents dans les pages de chaque restaurant mais pas dans l'index*/
+        margin-left: 9%;
+        margin-right: 9%;
+        h2{
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 800;
+        }
+        img{
+            @include centrer;
+            @include shadow_hover_img;
+            margin-bottom: 200px;
+            width: 100%;
+            max-width: 1500px;
+        }
+    }
+}
+
+
+
+
+/* Média-queries*/
+@media (min-width: 910px) and (max-width:1720px){ /*pour éviter d'avoir 3 colonne de menu car c'est pas estétique*/
+    body{
+        main{
+            figure{
+                max-width: 910px;
+            }
+        }
+    }
+}
+
+@media (max-width: 470px){ /*modification de quelques tailles sur petit ecran*/
+    body{
+        header{
+            h1{
+                font-size: 2.5em;
+            }
+        }
+        article{
+            h2{
+                font-size: 1.5em;
+            }
+        }
+        main{
+            figure{
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            a{
+                font-size: 1em;
+            }
+            
+        }
+        footer{
+            div{
+                white-space:normal;
+                a{
+                    font-size: 1.1em;
+                }
+            }
+        }
+        
+    }
+}
+
+@media (max-width:600px){
+    body{
+        article{ /*articles présents dans les pages de chaque restaurant mais pas dans l'index*/
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

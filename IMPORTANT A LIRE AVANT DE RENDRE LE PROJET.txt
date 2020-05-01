@@ -1,0 +1,5 @@
+les titres représentant les catégories entrées, plats, desserts devront être soulignés
+de gauche à droit au survol de la souris​ .  
+
+
+a faire, mais je ne comprends pas comment ! C'est les eul truc que j'ai pas compris, à demander au tuteur)
